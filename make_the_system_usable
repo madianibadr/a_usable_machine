@@ -1,0 +1,35 @@
+#!/bin/bash
+minimal_basic="groff vim curl wget net-tools git unzip tar zip sudo gzip grep sed bash-completion mount man-db"
+
+basic="$minimal_basic zathura pandoc neofetch tmux build-essential python3 htop lf fzf gcc g++ xxd feh graphviz "
+
+full="$basic vlc pcmanfm nitrogen mpv mgba-qt gimp blender cmus xmonad libghc-xmonad-contrib-dev inkscape libreoffice exiftool "
+
+
+echo -e "1_minimal basic\n2_basic\n3_full"
+read -p ": " choice
+
+case $choice in
+    1)
+	echo "$minimal_basic"
+        echo "ctr + c to quit"
+	read
+	sudo apt install $minimal_basic
+        ;;
+    2)
+
+	echo "$basic"
+        echo "ctr + c to quit"
+	read
+	sudo apt install $basic
+        ;;
+    3)
+        echo "$full"
+	echo "ctr +c to quit"
+	read
+	sudo apt install $full
+        ;;
+    *)
+        echo "Invalid Option"
+        ;;
+esac
